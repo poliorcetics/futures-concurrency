@@ -5,13 +5,13 @@ use crate::utils;
 
 /// Tracks which wakers are "ready" and should be polled.
 #[derive(Debug)]
-pub(crate) struct Readiness {
+pub(crate) struct ReadinessVec {
     count: usize,
     ready: BitVec,
     parent_waker: Option<Waker>,
 }
 
-impl Readiness {
+impl ReadinessVec {
     /// Create a new instance of readiness.
     pub(crate) fn new(count: usize) -> Self {
         Self {
